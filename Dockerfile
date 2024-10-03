@@ -1,5 +1,5 @@
 FROM ros:noetic
-LABEL maintainer = "Georg Novotny FHTW"
+LABEL maintainer = "EMS16"
 
 RUN apt-get update && \
     apt-get install -y bash-completion\
