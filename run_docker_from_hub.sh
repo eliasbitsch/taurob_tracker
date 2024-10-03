@@ -2,15 +2,22 @@
 
 XSOCK=/tmp/.X11-unix
 XAUTH=/tmp/.X11-unix
-SHARED_DIR=/home/fhtw_user/catkin_ws/src/fhtw
+SHARED_DIR=/home/fhtw_user/catkin_ws/src
 HOST_DIR=$(pwd)/catkin_ws/src
+IMAGE_NAME="taurob_image"
 
+# Build the Docker image
+echo -e "\e[32mBuilding Docker image: $IMAGE_NAME\e[0m"
+docker build -t $IMAGE_NAME .
+
+# Allow connections to the X server
 xhost +
-echo -e "\e[32mMounting fodler:
+
+echo -e "\e[32mMounting folder:
     $HOST_DIR    to
     $SHARED_DIR\e[0m"
 
-
+# Run the Docker container
 docker run \
     -it --rm \
     --volume=$XSOCK:$XSOCK:rw \
@@ -21,5 +28,7 @@ docker run \
     --privileged -v /dev/bus/usb:/dev/bus/usb \
     --net=host \
     --name "fhtw_ros" \
-    ghcr.io/tw-robotics/docker-ros:latest bash
+    $IMAGE_NAME bash
+
+# Disable access to the X server
 xhost -
