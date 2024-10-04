@@ -28,3 +28,4 @@ docker run \
 
 # Disable access to the X server
 xhost -
+
