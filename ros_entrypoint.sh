@@ -32,3 +32,4 @@ fi
 
 # Run the provided command using user 'fhtw_user'
 exec gosu fhtw_user "$@"
+
