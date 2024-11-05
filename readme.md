@@ -1,6 +1,7 @@
 # Taurob Tracker Valve Detection System
 
-<img src="images/TaurobTracker.png" alt="Taurob Tracker detecting and gripping a valve" />
+<img src="images/TaurobTracker.png" alt="Taurob Tracker detecting and gripping a valve" style="width: 100%; max-width: 500px;" />
+
 <br>
 <br>
 A ROS-based system for autonomous valve detection and manipulation using the Taurob Tracker robot. The system utilizes YOLO for valve detection and MoveIt for motion planning and gripper control.
