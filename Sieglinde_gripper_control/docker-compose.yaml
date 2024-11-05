@@ -6,5 +6,7 @@ services:
     network_mode: "host"
     tty: true
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
-    command: /bin/bash
+     - "/dev/ttyUSB0:/dev/ttyUSB0"
+    #command: /bin/bash -c './start.sh'
+
+

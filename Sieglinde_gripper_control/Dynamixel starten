@@ -1,0 +1,17 @@
+cd taurob_tracker/catkin_ws/src/Sieglinde_gripper_control/
+docker compose up
+
+--> neuer tab
+docker ps
+docker exec -it <docker-id> bash
+
+--> vs code neues leeres fenster
+--> docker rechts klick attach vs code
+
+source /opt/ros/noetic/setup.bash
+	-->in usr/dynamixel/catkin_ws/src
+bash start.sh
+
+source /opt/ros/noetic/setup.bash
+	-->in usr/dynamixel/catkin_ws/src
+python3 test.py

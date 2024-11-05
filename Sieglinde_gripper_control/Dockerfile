@@ -1,33 +1,23 @@
-# Use the official ROS Noetic base image
-FROM ros:noetic-ros-base
+FROM ros:noetic
 
-# Set environment variables
-ENV ROS_PACKAGE_PATH=/opt/ros/noetic/share
-ENV ROS_DISTRO=noetic
+# LABEL about the custom image
+LABEL maintainer="ma0180@technikum-wien.at"
+LABEL version="1.0"
+LABEL description="Dynamixel ROS_Control"
 
-# Install necessary packages
-RUN apt-get update && \
-    apt-get install -y \
-    ros-noetic-dynamixel-sdk \
-    ros-noetic-dynamixel-controllers \
-    ros-noetic-dynamixel-msgs \
-    python3-rosdep \
-    python3-catkin-tools \
-    && apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
 
-# Initialize rosdep
-RUN rosdep init && \
-    rosdep update
+#Updating and Installing stuff
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install -y git ros-noetic-dynamixel-sdk ros-noetic-dynamixel-workbench* ros-noetic-ros-controllers ros-noetic-ros-control* ros-noetic-dynamixel*
 
-# Create a workspace
-RUN mkdir -p /workspace/src
+#Creating Workspace
+RUN mkdir -p /usr/src/dynamixel/catkin_ws/src
+#Building ROS Workspace
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd  /usr/src/dynamixel/catkin_ws; catkin_make'
 
-# Set the working directory
-WORKDIR /workspace
-
-# Source the ROS environment
-RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-
-# Entry point
-CMD ["bash"]
+WORKDIR /usr/src/dynamixel/catkin_ws/src
+COPY . ./
+RUN chmod +x start.sh
+RUN git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd  /usr/src/dynamixel/catkin_ws; catkin_make'
