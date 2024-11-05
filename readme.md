@@ -1,6 +1,6 @@
 # Taurob Tracker Valve Detection System
 
-<img src="images/TaurobTracker.png" alt="Taurob Tracker detecting and gripping a valve" style="width: 100%; max-width: 200px;" />
+<img src="images/TaurobTracker.png" alt="Taurob Tracker detecting and gripping a valve" style="width: 60%; max-width: 200px;" />
 
 <br>
 <br>
