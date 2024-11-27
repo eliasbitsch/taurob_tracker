@@ -1,0 +1,5 @@
+
+
+axis_gripper_open: 5        # LT (Left Trigger)
+axis_gripper_close: 4      # RT (Right Trigger)
+gripper_threshold: -1.0      # Trigger must be pressed beyond this value (0 to 1 range)
