@@ -1,0 +1,11 @@
+<launch>
+  <!-- Launch the gripper control node -->
+  <node name="gripper_control" pkg="rqt_gripper_control" type="rqt_gripper_node" output="screen">
+    <!-- Example parameters -->
+
+  </node>
+
+  <!-- Launch the rqt_reconfigure tool -->
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" output="screen" />
+
+</launch>

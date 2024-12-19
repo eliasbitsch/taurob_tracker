@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GripperControlWidget</class>
+ <widget class="QWidget" name="GripperControlWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gripper Control</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QSlider" name="position_slider">
+     <property name="minimum">
+      <number>-800</number>
+     </property>
+     <property name="maximum">
+      <number>3700</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSpinBox" name="position_spinbox">
+     <property name="minimum">
+      <number>-800</number>
+     </property>
+     <property name="maximum">
+      <number>3700</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+</ui>
