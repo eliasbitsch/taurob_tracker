@@ -1,0 +1,7 @@
+  <launch>
+
+    <node name="valve_detection" pkg="valve_detection" type="main.py" output="screen" />
+  <!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find valve_detection)/rviz/rviz_config.rviz" />
+
+  </launch>

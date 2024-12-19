@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/devel
+
+Name: realsense
+Description: Description of realsense
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

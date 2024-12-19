@@ -1,0 +1,13 @@
+names:
+- Lever Handle Valve Threaded
+- Wheel Handle Valve Threaded
+nc: 2
+roboflow:
+  license: CC BY 4.0
+  project: valve_detection-31myq
+  url: https://universe.roboflow.com/ws-m0cj0/valve_detection-31myq/dataset/2
+  version: 2
+  workspace: ws-m0cj0
+test: ../test/images
+train: ../train/images
+val: ../valid/images
