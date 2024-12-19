@@ -1,8 +1,11 @@
 # Valve Detection System for Rescue Robots
 
-## Overview
-This project is part of a rescue robot initiative designed to detect and close valves during search-and-rescue operations. It leverages the YOLOv8 object detection model to accurately identify valves in real-time using the robot's onboard camera. The system processes visual data to identify valve positions, enabling the robot to perform necessary actions autonomously. The detection results are visualized in **RViz** for easy monitoring and interaction.
+![Valve Detection in RViz](../images/rviz_valve_detection.png)
 
+
+
+## Overview
+This project enables a rescue robot to detect and close valves during operations using YOLOv8 for real-time valve identification via the onboard camera. The results are visualized in **RViz** for monitoring. The system may also be extended for radioactive material detection in water pipes for the Enrich Challenge, though this is outside the project's scope.
 Additionally, the system may be extended for detecting radioactive material in water pipes for the Enrich Challenge, though this part is not directly the responsibility of the project.
 
 ---

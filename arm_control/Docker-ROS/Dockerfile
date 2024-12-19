@@ -1,5 +1,5 @@
 FROM ros:noetic
-LABEL maintainer = "EMS16"
+LABEL maintainer = "Georg Novotny FHTW"
 
 RUN apt-get update && \
     apt-get install -y bash-completion\
@@ -94,45 +94,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends python-is-pytho
 RUN pip3 install jupyterlab
 RUN pip3 install --upgrade jupyter_core jupyter_client
 RUN pip3 install matplotlib numpy scikit-learn
+RUN apt get update && apt-get install -y ros-noetic-joy
 
 RUN su ${USERNAME} -c "echo 'if [ -z \"\$TMUX\" ] && [ \"\$TERM_PROGRAM\" != \"vscode\" ] && [ -z \"\$SESSION_MANAGER\" ]; then tmux attach -t default || tmux new -s default; fi' >> /home/${USERNAME}/.bashrc"
-
-
-RUN apt-get update && \
-    apt-get install -y ros-noetic-joint-state-publisher-gui && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install dependencies for VS Code Server
-RUN apt-get update && \
-    apt-get install -y curl wget gpg \
-    software-properties-common && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install Visual Studio Code
-RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
-    sudo mv microsoft.gpg /usr/share/keyrings/ && \
-    echo "deb [signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vscode.list && \
-    apt-get update && \
-    apt-get install -y code && \
-    rm -rf /var/lib/apt/lists/*
-
-# Set the working directory
-WORKDIR /catkin_ws
-
-# Clone your repository into the catkin workspace
-RUN git clone https://github.com/TW-Robotics/Sieglinde_2.0.git src
-
-# Install dependencies
-RUN rosdep update
-RUN apt-get update \
-    && rosdep install --from-paths src --ignore-src -r -y
-
-# Build the catkin workspace
-RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
-
-# Source the workspace
-RUN echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc
-
 
 COPY ros_entrypoint.sh /
 RUN chmod +x /ros_entrypoint.sh
