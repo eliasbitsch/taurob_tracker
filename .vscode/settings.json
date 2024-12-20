@@ -1,3 +1,3 @@
 {
-    "cmake.sourceDirectory": "/home/elias/git/taurob_tracker/Sieglinde_gripper_control/sieglinde_gripper_control"
+    "cmake.sourceDirectory": "/home/elias/git/taurob_tracker/arm_control/ros_packages_taurob_auf_sieglinde/taurob_moveit_interface"
 }
