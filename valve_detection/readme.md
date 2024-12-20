@@ -21,7 +21,10 @@ Additionally, the system may be extended for detecting radioactive material in w
    bash run_valve_detection_container.sh
    ```
 
-3. The system should now be running with YOLOv8 for valve detection and visualized in RViz.
+3. Start the node:
+   ```bash
+   roslaunch valve_detection valve_detection.launch
+   ```
 
 ---
 
